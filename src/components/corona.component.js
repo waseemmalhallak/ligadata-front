@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CoronaDataService from "../services/corona.service";
 
 import { styles } from "../css-common"
-import { TextField, Button, withStyles } from "@material-ui/core";
+import { TextField, withStyles } from "@material-ui/core";
 
 class Corona extends Component {
     constructor(props) {
