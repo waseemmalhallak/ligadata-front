@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Switch, Route, Link } from "react-router-dom";
+import "./App.css";
+import { styles } from "./css-common"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AddTutorial from "./components/add-tutorial.component";
+import Tutorial from "./components/tutorial.component";
+import TutorialsList from "./components/tutorials-list.component";
+
+import { AppBar, Toolbar, Typography, withStyles } from '@material-ui/core';
+
+class App extends Component {
+  render() {
+    const { classes } = this.props
+
+    return (
+      <div>
+        <AppBar className={classes.appBar} position="static">
+          <Toolbar>
+            <Typography className={classes.name} variant="h6">
+              Ligadata
+            </Typography>
+          </Toolbar>
+        </AppBar>
+
+          <Switch>
+            <Route exact path={["/", "/paagination"]} component={TutorialsList} />
+          </Switch>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withStyles(styles)(App);
